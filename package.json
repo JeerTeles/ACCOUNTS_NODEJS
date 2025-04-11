@@ -1,0 +1,16 @@
+{
+  "name": "accounts_nodejs",
+  "version": "1.0.0",
+  "description": "aplicação de conta bancaria, intuito estudar nodejs sem interface grafica",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "author": "Jaderson Teles",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^4.1.2",
+    "inquirer": "^12.5.2"
+  }
+}
