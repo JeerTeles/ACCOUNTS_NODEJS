@@ -56,9 +56,8 @@ function buildAccount() {
       },
     ])
 
-    .then((answer) => {
+    .then((answer, answerPassword) => {
       console.info(answer['accountName'])
-
       const accountName = answer['accountName']
 
       if (!fs.existsSync('accounts')) {
@@ -203,7 +202,7 @@ function withdraw() {
         return withdraw()
       }
 
-      inquirer
+        inquirer.default
         .prompt([
           {
             name: 'amount',
@@ -214,7 +213,7 @@ function withdraw() {
           const amount = answer['amount']
 
           removeAmount(accountName, amount)
-          operation()
+
         })
     })
 }
@@ -224,13 +223,13 @@ function removeAmount(accountName, amount) {
 
   if (!amount) {
     console.log(
-      chalk.bgRed.black('Ocorreu um erro, tente novamente mais tarde!'),
+      chalk.bgRed.black('Ocorreu um erro, você não degitou um valor correto pra saque!'),
     )
     return withdraw()
   }
 
   if (accountData.balance < amount) {
-    console.log(chalk.bgRed.black('Valor indisponível!'))
+    console.log(chalk.bgRed.black(`Valor indisponível, seu sado é ${accountData.balance}`))
     return withdraw()
   }
 
